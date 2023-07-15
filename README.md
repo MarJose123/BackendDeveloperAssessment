@@ -32,6 +32,30 @@ Generate new JWT secret key for your application
 php artisan jwt:secret
 ```
 
+Run Database Seeder to populate the database 
+```bash
+php artisan db:seed
+```
+
+# Credentials
+
+###### SUPER USER
+```
+superuser@mail.com
+superuser
+```
+###### ADMIN
+```
+admin@mail.com
+admin
+```
+###### USER 
+```
+user@mail.com
+user
+```
+
+
 # Notes
 
 ---
