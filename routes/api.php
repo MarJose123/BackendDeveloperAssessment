@@ -41,8 +41,8 @@ Route::prefix('auth')
 Route::prefix('security')
     ->middleware(['api', 'auth:api'])
     ->group(function (){
-        Route::get('roles', [RoleController::class, 'index'])->middleware('role_or_permission:SUPER_USER|ADMIN|View Role');
-
+        Route::get('roles', [RoleController::class, 'roleList'])->middleware('role_or_permission:SUPER_USER|ADMIN|View Role');
+        Route::get('permissions', [RoleController::class, 'permissionList'])->middleware('role_or_permission:SUPER_USER|ADMIN|View Permissions');
     });
 
 /*
