@@ -1,4 +1,7 @@
 <?php
+/*
+ * Copyright (c) 2023. LF Backend Developer Assessment by Josie Noli Darang.
+ */
 
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;

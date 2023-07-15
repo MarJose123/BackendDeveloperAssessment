@@ -1,4 +1,7 @@
 <?php
+/*
+ * Copyright (c) 2023. LF Backend Developer Assessment by Josie Noli Darang.
+ */
 
 use App\Http\Controllers\AuthenticationController;
 use Illuminate\Http\Request;

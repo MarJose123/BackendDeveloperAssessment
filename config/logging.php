@@ -1,4 +1,7 @@
 <?php
+/*
+ * Copyright (c) 2023. LF Backend Developer Assessment by Josie Noli Darang.
+ */
 
 use Monolog\Handler\NullHandler;
 use Monolog\Handler\StreamHandler;
