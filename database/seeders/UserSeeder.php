@@ -27,13 +27,13 @@ class UserSeeder extends Seeder
 
         // create roles and assign created permissions
 
-        $superUserRole = Role::create(['name' => 'SUPER_USER'])
+        Role::create(['name' => 'SUPER_USER'])
                         ->givePermissionTo(Permission::all());
-        $userRole = Role::create(['name' => 'USER'])
+        Role::create(['name' => 'USER'])
                     ->givePermissionTo([
                         'View Profile'
                     ]);
-        $adminRole = Role::create(['name' => 'ADMIN'])
+       Role::create(['name' => 'ADMIN'])
                     ->givePermissionTo([
                         'Add Role', 'Add User', 'View User', 'View Role', 'View Profile'
                     ]);
