@@ -32,7 +32,7 @@ class AuthenticationController extends Controller
         return response()->json([
             'status' => 'success',
             'code' => Response::HTTP_OK,
-            'message' =>  'Login successful.',
+            'message' =>  'Successfully Logged in',
             'data' => [
                 'access_token' => $token,
                 'token_type' => 'bearer',
