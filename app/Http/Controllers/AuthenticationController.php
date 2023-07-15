@@ -29,6 +29,51 @@ class AuthenticationController extends Controller
             ], Response::HTTP_UNAUTHORIZED);
         }
 
-        return $this->respondWithToken($token);
+        return response()->json([
+            'status' => 'success',
+            'code' => Response::HTTP_OK,
+            'message' =>  'Login successful.',
+            'data' => [
+                'access_token' => $token,
+                'token_type' => 'bearer',
+                'expires_in' => auth()->factory()->getTTL() * 60
+            ]
+        ], Response::HTTP_OK);
+
+    }
+
+    public function logout()
+    {
+        auth()->logout();
+        return response()->json([
+            'status' => 'success',
+            'code' => Response::HTTP_OK,
+            'message' =>  'Successfully logged out',
+        ], Response::HTTP_OK);
+    }
+
+    public function refresh()
+    {
+        return response()->json([
+            'status' => 'success',
+            'code' => Response::HTTP_OK,
+            'message' =>  'Successfully refreshed',
+            'data' => [
+                'access_token' => auth()->refresh(),
+                'token_type' => 'bearer',
+                'expires_in' => auth()->factory()->getTTL() * 60
+            ]
+        ], Response::HTTP_OK);
+    }
+
+
+    public function me()
+    {
+        return response()->json([
+            'status' => 'success',
+            'code' => Response::HTTP_OK,
+            'message' => null,
+            'data' => auth()->user()
+        ], Response::HTTP_OK);
     }
 }
