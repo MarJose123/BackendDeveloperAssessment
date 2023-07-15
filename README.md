@@ -32,3 +32,7 @@ Generate new JWT secret key for your application
 php artisan jwt:secret
 ```
 
+# Notes
+
+---
+- The best practice approach is to check the permissions not the role, as the Roles stand only for the sets of permissions you've created and not the actual user ability on the system. By doing the Role checking only it will make our system vulnerable.
