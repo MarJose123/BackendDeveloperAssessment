@@ -60,3 +60,6 @@ user
 
 ---
 - The best practice approach is to check the permissions not the role, as the Roles stand only for the sets of permissions you've created and not the actual user ability on the system. By doing the Role checking only it will make our system vulnerable.
+- When creating a new `Role`, you need to supply an `id` of the `Permissions` you want to associate with the Role that you will be creating.
+- The API route will be checked if the request is authorized, and if the authorized user has the required role or ability to perform an action of the specific API route.
+- 
