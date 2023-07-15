@@ -4,6 +4,7 @@
  */
 
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,6 +18,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+
+/*
+ * Authentication API Route
+ */
 Route::prefix('auth')
     ->middleware('api')
     ->group(function (){
@@ -28,6 +33,21 @@ Route::prefix('auth')
 
 });
 
+/*
+ * User Security Control
+ *
+ * API Route for Roles
+ */
+Route::prefix('security')
+    ->middleware(['api', 'auth:api'])
+    ->group(function (){
+        Route::get('roles', [RoleController::class, 'index'])->middleware('role_or_permission:SUPER_USER|ADMIN|View Role');
+
+    });
+
+/*
+ * Profile API Route View
+ */
 Route::prefix('profile')
     ->middleware(['auth:api', 'api'])
     ->group(function (){
